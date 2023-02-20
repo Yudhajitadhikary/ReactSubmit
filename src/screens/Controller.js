@@ -4,10 +4,10 @@ import Details from "../screens/details/Details";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import BookShow from "../screens/bookshow/BookShow";
 import Confirmation from "../screens/confirmation/Confirmation";
-import JsonData from '../data/movies.json'
+
 const Controller = () => {
   const baseUrl = "/api/v1/";
-console.log(JsonData,'JsonData')
+
   return (
     <Router>
       <div className="main-container">
