@@ -11,7 +11,7 @@ import YouTube from "react-youtube";
 import StarBorderIcon from "@material-ui/icons/StarBorder";
 
 import "./Details.css";
-
+//Object for Star selection for movies
 const starIconsInitial = [
   {
     id: 1,
@@ -59,6 +59,7 @@ function Details(props) {
   const [starIcons, setStarIcons] = React.useState(starIconsInitial);
 
   const artistClickHandler = (url) => {
+    // we are redirecting user to wikipedia page about artists
     window.location = url;
   };
 
@@ -66,6 +67,7 @@ function Details(props) {
     let starIconList = [];
     for (let star of starIcons) {
       let starNode = star;
+      // we are changing color of the star whose id is less and equal to the selected id 
       if (star.id <= id) {
         starNode.color = "yellow";
       } else {
@@ -78,6 +80,7 @@ function Details(props) {
 
   useEffect(() => {
     const getMovie = async () => {
+      //Fetching details for that particular movie
       const response = await fetch(
         `${props.baseUrl}movies/${props.match.params.id}`
       );
@@ -93,7 +96,7 @@ function Details(props) {
       <Header
         id={props.match.params.id}
         baseUrl={props.baseUrl}
-        showBookShowButton
+        showBookShowButton // while determine whether Book show button will be visible or not 
       />
       <div className="back">
         <Typography>

@@ -104,53 +104,65 @@ function Home(props) {
   }, []);
 
   const movieNameChangeHandler = (event) => {
+    //setting Movies name by which filtering will happen
     setMovieName(event.target.value);
   };
 
   const genreSelectHandler = (event) => {
+    //setting Genre List by which filtering will happen
     setGenres(event.target.value);
   };
 
   const artistSelectHandler = (event) => {
+    //setting Artist List by which filtering will happen
     setArtists(event.target.value);
   };
 
   const releaseDateStartHandler = (event) => {
+    //setting releaseStartDate by which filtering will happen
     setReleaseDateStart(event.target.value);
   };
 
   const releaseDateEndHandler = (event) => {
+    //setting releaseEndDate by which filtering will happen
     setReleaseDateEnd(event.target.value);
   };
 
   const movieClickHandler = (movieId) => {
+    //Redirecting to movie details
     props.history.push("/movie/" + movieId);
   };
 
   const filterApplyHandler = async () => {
+    //Filering only released movies
     let queryString = "?status=RELEASED";
     if (movieName !== "") {
+      //If we are having some value in MovieName field we will pass that in our api as param
       queryString += "&title=" + movieName;
     }
-    console.log(genres,artists)
+    // console.log(genres,artists)
     if (genres.length > 0) {
+      //If we are having element in genres array we will pass that in our api as param
       queryString += "&genre=" + genres.toString();
     }
     if (artists.length > 0) {
+      //If we are having element in artists array we will pass that in our api as param
       queryString += "&artists=" + artists.toString();
     }
     if (releaseDateStart !== "") {
+      //If we are having some value in releaseDateStart field we will pass that in our api as param
       queryString += "&start_date=" + releaseDateStart;
     }
     if (releaseDateEnd !== "") {
+      //If we are having some value in releaseDateEnd field we will pass that in our api as param
       queryString += "&end_date=" + releaseDateEnd;
     }
-    console.log(queryString)
-
+    // console.log(queryString)
+    //fetching filtered data from api
     const response = await fetch(`${baseUrl}movies${encodeURI(queryString)}`);
     const data = await response.json();
     if (response.status === 200) {
-      console.log(data)
+      //setting releasedMovies value
       setReleasedMovies(data.movies);
     }
   };
