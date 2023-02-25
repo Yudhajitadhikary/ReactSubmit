@@ -38,23 +38,31 @@ const TabContainer = function (props) {
 function Header(props) {
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [value, setValue] = useState(0);
+  //for showing error message if username is empty
   const [usernameRequired, setUsernameRequired] = useState("dispNone");
   const [username, setUsername] = useState("");
+  //for showing error message if password is empty
   const [loginPasswordRequired, setLoginPasswordRequired] =
     useState("dispNone");
   const [loginPassword, setLoginPassword] = useState("");
+  //for showing error message if firstName is empty
   const [firstnameRequired, setFirstnameRequired] = useState("dispNone");
   const [firstname, setFirstname] = useState("");
+  //for showing error message if lastName is empty
   const [lastnameRequired, setLastnameRequired] = useState("dispNone");
   const [lastname, setLastname] = useState("");
+   //for showing error message if email is empty
   const [emailRequired, setEmailRequired] = useState("dispNone");
   const [email, setEmail] = useState("");
+   //for showing error message if registration password is empty
   const [registerPasswordRequired, setRegisterPasswordRequired] =
     useState("dispNone");
   const [registerPassword, setRegisterPassword] = useState("");
+   //for showing error message if contact number is empty
   const [contactRequired, setContactRequired] = useState("dispNone");
   const [contact, setContact] = useState("");
   const [registrationSuccess, setRegistrationSuccess] = useState(false);
+  //if sessionStrage have token parameter which means user is logged in we will set loggedIn to true else false
   const [loggedIn, setLoggedIn] = useState(
     sessionStorage.getItem("token") == null ? false : true
   );
@@ -94,7 +102,7 @@ function Header(props) {
       loginPassword === ""
         ? setLoginPasswordRequired("dispBlock")
         : setLoginPasswordRequired("dispNone");
-
+      //encoding username and password for authentication using window.btoa
       const response = await fetch(`${props.baseUrl}auth/login`, {
         method: "POST",
         headers: {
@@ -104,6 +112,7 @@ function Header(props) {
 
       if (response.status === 200) {
         const data = await response.json();
+        // if username and password are correct we are setting two item in sessionStorage that will indicate whether user is logged in on not
         sessionStorage.setItem("id", data.id);
         sessionStorage.setItem(
           "token",
@@ -118,10 +127,12 @@ function Header(props) {
   };
 
   const inputUsernameChangeHandler = (event) => {
+    //Changing username on change
     setUsername(event.target.value);
   };
 
   const inputLoginPasswordChangeHandler = (event) => {
+    //Changing password on change
     setLoginPassword(event.target.value);
   };
 
@@ -172,26 +183,32 @@ function Header(props) {
   };
 
   const inputFirstNameChangeHandler = (event) => {
+    //Changing firstname on change for registration
     setFirstname(event.target.value);
   };
 
   const inputLastNameChangeHandler = (event) => {
+    //Changing lastname on change for registration
     setLastname(event.target.value);
   };
 
   const inputEmailChangeHandler = (event) => {
+    //Changing email on change for registration
     setEmail(event.target.value);
   };
 
   const inputRegisterPasswordChangeHandler = (event) => {
+    //Changing password on change for registration 
     setRegisterPassword(event.target.value);
   };
 
   const inputContactChangeHandler = (event) => {
+    //Changing contact on change for registration
     setContact(event.target.value);
   };
 
   const logoutHandler = (event) => {
+    // if logged in user clicks on Logout button we are logging out the user by removing id and token parameter from sessionStorage
     sessionStorage.removeItem("id");
     sessionStorage.removeItem("token");
 

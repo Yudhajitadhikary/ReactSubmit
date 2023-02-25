@@ -7,7 +7,6 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import Link from '@mui/material/Link';
 export default function MovieCard(props) {
-    console.log(props,'props')
   return (
     <Link href={`movie/${props.movies.id}`}>
     <Card sx={{ maxWidth: 345 }}>
