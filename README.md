@@ -2524,3 +2524,39 @@ In the future, we might start automatically compiling incompatible third-party m
 ## Something Missing?
 
 If you have ideas for more “How To” recipes that should be on this page, [let us know](https://github.com/facebookincubator/create-react-app/issues) or [contribute some!](https://github.com/facebookincubator/create-react-app/edit/master/packages/react-scripts/template/README.md)
+
+## Roles & Responsibility ?
+
+These are the names of our project members:
+1> Yudhajit Adhikary (Group Facilitator)
+2> Smriti Kaushik
+3> Hirkanee Patil
+
+We are sharing the roles Module wise:
+
+Evaluation Rubrics for Header: 
+
+1> Yudhajit Adhikary : Worked on Login , Logout functionality.
+
+2> Smriti Kaushik : Worked on CSS and Logo.
+
+3> Hiraknee Patil : Worked on Book Show button functionality.
+
+Evaluation Rubrics for Home Page: 
+
+1> Yudhajit Adhikary : Worked on filtering released movies. 
+
+2> Smriti Kaushik : Worked on Creating Upcoming Movies heading and Movies Cards.
+
+3> Hiraknee Patil : Worked on rendering upcoming and released movie list.
+
+Evaluation Rubrics for Details Page:
+
+1> Yudhajit Adhikary : Worked on Rating section and Artist Cards
+
+2> Smriti Kaushik : Worked on Poster Part of the movie.
+
+3> Hiraknee Patil : Worked on rendering the Movie details and trailer video rendering.
+
+
+
